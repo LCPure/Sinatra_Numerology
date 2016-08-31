@@ -55,6 +55,12 @@ def correct_message(current_number) # Method to match Birth number to correct me
 end
 end
 
+get '/:birthdate' do
+   setup_index_view
+end
+
+
+
 def setup_index_view
     birthdate = params[:birthdate]
     coded_number = birth_number(birthdate)
@@ -63,10 +69,10 @@ def setup_index_view
 end
 
 def valid_birthdate(input)
-  if (input.length == 8) && (input.match(/^[0-9] + [0-9]$/).nil?)
-     return true
+  if (input.length == 8 && !input.match(/^[0-9] + [0-9]$/).nil?)
+     true
   else
-     return false
+     false
   end
 end
 
@@ -77,9 +83,6 @@ get '/' do
  erb :form
 end
 
-#post '/' do
-  #setup_index_view #call duplicated code
-#end
 
 get '/message/:birth_number' do
     birth_number = params[:birth_number].to_i
