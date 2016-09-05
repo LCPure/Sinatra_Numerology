@@ -11,13 +11,13 @@ APP_NAME = APP_ROOT.basename.to_s
 
 DB_PATH  = APP_ROOT.join('db', APP_NAME + "_development.db").to_s
 
-DB_NAME = APP_NAME + "_development.db"
+DB_NAME =  "active_record_development.db"
 
 TEST_DB_NAME = APP_NAME + "_test.db"
 
 DB_USERNAME = 'postgres'
 
-DB_PASSWORD = '123456'
+DB_PASSWORD = 'shoprite'
 
 if ENV['DEBUG']
   ActiveRecord::Base.logger = Logger.new(STDOUT)
